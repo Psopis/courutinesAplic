@@ -20,15 +20,16 @@ class MainActivity : AppCompatActivity() {
         .build()
    val refer = retrofit.create(com.example.courutinesaplic.referenceUser::class.java)
     override fun onCreate(savedInstanceState: Bundle?) {
-        var login = findViewById<EditText>(R.id.editText1)
-        var pass = findViewById<EditText>(R.id.editText2)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        var login = findViewById<EditText>(R.id.editText1)
+        var pass = findViewById<EditText>(R.id.editText2)
     findViewById<Button>(R.id.button).setOnClickListener(){
         MainScope().launch(Dispatchers.IO) {
             var userData = RegisterRequest(
-                login.text.toString(),
-                pass.text.toString(),
+                login.text!!.toString(),
+                pass.text!!.toString(),
                 "PsopASA6i"
             )
 
